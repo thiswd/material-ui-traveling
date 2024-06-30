@@ -1,5 +1,6 @@
-import { Box, Grid, Typography } from '@mui/material';
+import { Box, Grid, Rating, Typography } from '@mui/material';
 import Paper from '@mui/material/Paper';
+import { AccessTime } from '@mui/icons-material';
 
 export const TourCard = () => {
   return (
@@ -16,7 +17,27 @@ export const TourCard = () => {
               alignItems: "center",
             }}
           >
-            <Typography variant="body2" component="p">5 hours</Typography>
+            <AccessTime sx={{ color: "gray", width: 12.5 }} />
+            <Typography variant="body2" component="p" marginLeft={0.5}>5 hours</Typography>
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+            }}
+            marginTop={3}
+          >
+            <Rating name="read-only" value={3.5} precision={0.5} size="small" readOnly />
+            <Typography variant="body2" component="p" marginLeft={0.5}>3.5</Typography>
+            <Typography variant="body2" component="p" marginLeft={1.5}>(123 reviews)</Typography>
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <Typography variant="h6" component="h3" marginTop={0}>From R$ 500</Typography>
           </Box>
         </Box>
       </Paper>
