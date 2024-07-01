@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Box, Grid, Rating, ThemeProvider, Typography, createTheme } from '@mui/material';
 import Paper from '@mui/material/Paper';
 import { AccessTime } from '@mui/icons-material';
@@ -27,16 +28,16 @@ const theme = createTheme({
   }
 })
 
-export const TourCard = () => {
+export const TourCard = ({ tour }) => {
 
   return (
     <Grid item xs={4}>
       <ThemeProvider theme={theme}>
         <Paper elevation={3}>
-          <img src="https://picsum.photos/200/300" className="img" />
+          <img src={tour.image} className="img" />
           <Box paddingX={1}>
             <Typography variant="subtitle1" component="h2">
-              Um bom lugar
+              {tour.name}
             </Typography>
             <Box
               sx={{
@@ -45,7 +46,7 @@ export const TourCard = () => {
               }}
             >
               <AccessTime sx={{ color: "gray", width: 12.5 }} />
-              <Typography variant="body2" component="p" marginLeft={0.5}>5 hours</Typography>
+              <Typography variant="body2" component="p" marginLeft={0.5}>{tour.duration} hours</Typography>
             </Box>
             <Box
               sx={{
@@ -54,9 +55,9 @@ export const TourCard = () => {
               }}
               marginTop={3}
             >
-              <Rating name="read-only" value={3.5} precision={0.5} size="small" readOnly />
-              <Typography variant="body2" component="p" marginLeft={0.5}>3.5</Typography>
-              <Typography variant="body3" component="p" marginLeft={1.5}>(123 reviews)</Typography>
+              <Rating name="read-only" value={tour.rating} precision={0.5} size="small" readOnly />
+              <Typography variant="body2" component="p" marginLeft={0.5}>{tour.rating}</Typography>
+              <Typography variant="body3" component="p" marginLeft={1.5}>({tour.numberOfReviews} reviews)</Typography>
             </Box>
             <Box
               sx={{
@@ -64,7 +65,7 @@ export const TourCard = () => {
                 alignItems: "center",
               }}
             >
-              <Typography variant="h6" component="h3" marginTop={0}>From R$ 500</Typography>
+              <Typography variant="h6" component="h3" marginTop={0}>From R$ {tour.price}</Typography>
             </Box>
           </Box>
         </Paper>
