@@ -10,7 +10,6 @@ function App() {
           <TourCard />
           <TourCard />
           <TourCard />
-          <TourCard />
         </Grid>
       </Container>
     </div>
