@@ -1,6 +1,6 @@
 import { Container, Grid, Typography } from '@mui/material'
 import { TourCard } from './components/TourCard'
-import SearchAppBar from './components/AppBar'
+import { SearchAppBar } from './components/AppBar'
 
 import './App.css'
 
